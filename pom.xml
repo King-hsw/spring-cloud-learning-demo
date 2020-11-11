@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.teleware</groupId>
+    <artifactId>spring-cloud</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <!--注册中心-->
+        <module>eureka</module>
+        <!--网关-->
+        <module>zuul</module>
+        <module>order</module>
+        <module>common</module>
+        <module>payment</module>
+        <module>config-server</module>
+    </modules>
+    <name>spring-cloud</name>
+    <description>Demo project for Spring Boot</description>
+    <!--父工程文件-->
+    <packaging>pom</packaging>
+    <!--统一管理jar包版本-->
+    <properties>
+        <!--项目构建编码-->
+        <project.bulid.sourceEncoding>UTF-8</project.bulid.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!--log4j日志版本-->
+        <log4j.version>1.2.17</log4j.version>
+        <!--spring boot版本-->
+        <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
+        <!--spring cloud版本-->
+        <spring.cloud.version>Hoxton.SR1</spring.cloud.version>
+
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!--spring boot 2.2.2-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud Hoxton.SR1-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
