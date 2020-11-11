@@ -1,0 +1,16 @@
+spring:
+    cloud:
+        config:
+            override-none: true
+            override-system-properties: false
+    datasource:
+        driver-class-name: oracle.jdbc.driver.OracleDriver
+        hikari:
+            connection-test-query: SELECT SYSDATE FROM DUAL
+            connection-timeout: 1000000
+            maxLifetime: 1765000
+            maximumPoolSize: 10
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:oracle:thin:@10.0.77.14:1521:ora11g
+        username: GEOCLOUD_PLATFORM
+        password: GEOCLOUD_PLATFORM
